@@ -1,0 +1,156 @@
+- Farewell Infortality.
+-- Version: 2.82
+-- Instances:
+local vehgui = Instance.new("ScreenGui")
+local vhacks = Instance.new("Frame")
+local sacar = Instance.new("TextButton")
+local ljump = Instance.new("TextButton")
+local hjump = Instance.new("TextButton")
+local perksal = Instance.new("TextButton")
+local vehopcl = Instance.new("Frame")
+local opecl = Instance.new("TextButton")
+--Properties:
+vehgui.Name = "vehgui"
+vehgui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+vehgui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ 
+vhacks.Name = "vhacks"
+vhacks.Parent = vehgui
+vhacks.BackgroundColor3 = Color3.new(1, 1, 1)
+vhacks.Position = UDim2.new(0.394279867, 0, 0.348367035, 0)
+vhacks.Size = UDim2.new(0, 207, 0, 195)
+ 
+sacar.Name = "sacar"
+sacar.Parent = vhacks
+sacar.BackgroundColor3 = Color3.new(1, 1, 1)
+sacar.Size = UDim2.new(0, 207, 0, 50)
+sacar.Font = Enum.Font.SourceSans
+sacar.Text = "SuperCar"
+sacar.TextColor3 = Color3.new(0, 0, 0)
+sacar.TextSize = 14
+ 
+ljump.Name = "ljump"
+ljump.Parent = vhacks
+ljump.BackgroundColor3 = Color3.new(1, 1, 1)
+ljump.Position = UDim2.new(0, 0, 0.743589818, 0)
+ljump.Size = UDim2.new(0, 207, 0, 50)
+ljump.Font = Enum.Font.SourceSans
+ljump.Text = "Normal JumpHeight"
+ljump.TextColor3 = Color3.new(0, 0, 0)
+ljump.TextSize = 14
+ 
+hjump.Name = "hjump"
+hjump.Parent = vhacks
+hjump.BackgroundColor3 = Color3.new(1, 1, 1)
+hjump.Position = UDim2.new(0, 0, 0.512820542, 0)
+hjump.Size = UDim2.new(0, 207, 0, 50)
+hjump.Font = Enum.Font.SourceSans
+hjump.Text = "High JumpHeight"
+hjump.TextColor3 = Color3.new(0, 0, 0)
+hjump.TextSize = 14
+ 
+perksal.Name = "perksal"
+perksal.Parent = vhacks
+perksal.BackgroundColor3 = Color3.new(1, 1, 1)
+perksal.Position = UDim2.new(0, 0, 0.256410271, 0)
+perksal.Size = UDim2.new(0, 207, 0, 50)
+perksal.Font = Enum.Font.SourceSans
+perksal.Text = "All Perks"
+perksal.TextColor3 = Color3.new(0, 0, 0)
+perksal.TextSize = 14
+ 
+vehopcl.Name = "vehopcl"
+vehopcl.Parent = vehgui
+vehopcl.BackgroundColor3 = Color3.new(1, 1, 1)
+vehopcl.BackgroundTransparency = 1
+vehopcl.Position = UDim2.new(0, 0, 0.309486806, 0)
+vehopcl.Size = UDim2.new(0, 100, 0, 100)
+ 
+opecl.Name = "opecl"
+opecl.Parent = vehopcl
+opecl.BackgroundColor3 = Color3.new(1, 1, 1)
+opecl.Position = UDim2.new(0, 0, 0.509999871, 0)
+opecl.Size = UDim2.new(0, 61, 0, 18)
+opecl.Modal = true
+opecl.Font = Enum.Font.SourceSans
+opecl.Text = "Open/Close"
+opecl.TextColor3 = Color3.new(0, 0, 0)
+opecl.TextSize = 14
+-- Scripts:
+function findCar()
+local vehicle = workspace.Vehicles:getChildren()
+for i=1,#vehicle do
+if vehicle[i]:findFirstChild("owner") then
+if vehicle[i].owner.Value == game.Players.LocalPlayer.Name then
+myCar = vehicle[i]
+end
+end
+end
+end
+function SCRIPT_RXIQ83_FAKESCRIPT() -- sacar.LocalScript 
+	local script = Instance.new('LocalScript')
+	script.Parent = sacar
+	local sac = script.Parent
+	sac.MouseButton1Click:Connect(function()
+		findCar()
+	myCar.Handling.MaxSpeed.Value = 10000
+	myCar.Handling.Torque.Value = 40000
+	myCar.Handling.SteeringRadiusConstant.Value = 15000
+	myCar.Handling.FrictionRoad.Value = 250
+	myCar.Handling.Nitro.NitroSpeed.Value = 500
+	myCar.Handling.Nitro.NitroForce.Value = 5000
+	myCar.Handling.TurboJump.TurboJumpHeight.Value = 38
+	end)
+ 
+ 
+end
+coroutine.resume(coroutine.create(SCRIPT_RXIQ83_FAKESCRIPT))
+function SCRIPT_FZBV90_FAKESCRIPT() -- ljump.LocalScript 
+	local script = Instance.new('LocalScript')
+	script.Parent = ljump
+	local ljp = script.Parent
+	ljp.MouseButton1Click:Connect(function()
+		findCar()
+	myCar.Handling.TurboJump.TurboJumpHeight.Value = 27
+	end)
+ 
+end
+coroutine.resume(coroutine.create(SCRIPT_FZBV90_FAKESCRIPT))
+function SCRIPT_VRJX89_FAKESCRIPT() -- hjump.LocalScript 
+	local script = Instance.new('LocalScript')
+	script.Parent = hjump
+	local hjp = script.Parent
+	hjp.MouseButton1Click:Connect(function()
+		findCar()
+	myCar.Handling.TurboJump.TurboJumpHeight.Value = 69
+	end)
+ 
+ 
+end
+coroutine.resume(coroutine.create(SCRIPT_VRJX89_FAKESCRIPT))
+function SCRIPT_FBOG86_FAKESCRIPT() -- perksal.LocalScript 
+	local script = Instance.new('LocalScript')
+	script.Parent = perksal
+	local peksalr = script.Parent
+	peksalr.MouseButton1Click:Connect(function()
+		game:GetService("Players").LocalPlayer.UserId = 1099580
+	end)
+ 
+ 
+end
+coroutine.resume(coroutine.create(SCRIPT_FBOG86_FAKESCRIPT))
+function SCRIPT_EWHA67_FAKESCRIPT() -- opecl.LocalScript 
+	local script = Instance.new('LocalScript')
+	script.Parent = opecl
+	local mainnguii = script.Parent.Parent.Parent.vhacks
+	local opacals = script.Parent
+	opacals.MouseButton1Click:Connect(function()
+		if mainnguii.Visible == true then
+			mainnguii.Visible = false
+		else
+			mainnguii.Visible = true
+		end
+	end)
+ 
+end
+coroutine.resume(coroutine.create(SCRIPT_EWHA67_FAKESCRIPT))
